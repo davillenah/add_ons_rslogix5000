@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Management of the operating system.
+
+0 = OFF
+1 = HAND
+2 = AUTO-->
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="20.00" TargetName="HOA_Control" TargetType="AddOnInstructionDefinition" TargetRevision="1.0 " TargetLastEdited="2020-05-26T06:44:42.501Z" ContainsContext="true" Owner="Daniel A. Villena H." ExportDate="Thu May 28 20:59:03 2020" ExportOptions="References DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="add_ons_rslogix5000">
+<DataTypes Use="Context">
+</DataTypes>
+<AddOnInstructionDefinitions Use="Context">
+<AddOnInstructionDefinition Use="Target" Name="HOA_Control" Revision="1.0" Vendor="Daniel A. Villena H." ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2020-05-15T18:33:47.018Z" CreatedBy="ingeniero-PC\ingeniero" EditedDate="2020-05-26T06:44:42.501Z" EditedBy="Villena-PC\Villena"
+ SoftwareRevision="v20.00">
+<Description>
+<![CDATA[Management of the operating system.
+
+0 = OFF
+1 = HAND
+2 = AUTO]]>
+</Description>
+<RevisionNote>
+<![CDATA[Initial Version]]>
+</RevisionNote>
+<Parameters>
+<Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Input - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Output - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="HAND" TagType="Base" DataType="BOOL" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false"/>
+<Parameter Name="OFF" TagType="Base" DataType="BOOL" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false"/>
+<Parameter Name="AUTO" TagType="Base" DataType="BOOL" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false"/>
+<Parameter Name="CONTROL" TagType="Base" DataType="SINT" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<DefaultData>00</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="SINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+</Parameters>
+<LocalTags>
+<LocalTag Name="ONS0" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+<DefaultData>00</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="ONS1" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+<DefaultData>00</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="ONS2" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+<DefaultData>00</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+</LocalTags>
+<Routines>
+<Routine Name="Logic" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Text>
+<![CDATA[XIC(OFF)ONS(ONS0)MOV(0,CONTROL);]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Text>
+<![CDATA[XIO(OFF)XIC(HAND)XIO(AUTO)ONS(ONS1)MOV(1,CONTROL);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Text>
+<![CDATA[XIO(OFF)XIO(HAND)XIC(AUTO)ONS(ONS2)MOV(2,CONTROL);]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+</Routines>
+</AddOnInstructionDefinition>
+</AddOnInstructionDefinitions>
+</Controller>
+</RSLogix5000Content>
