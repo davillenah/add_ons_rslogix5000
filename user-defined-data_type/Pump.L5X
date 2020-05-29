@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="20.00" TargetName="Pump" TargetType="DataType" ContainsContext="true" Owner="Daniel A. Villena H." ExportDate="Tue May 26 03:48:32 2020" ExportOptions="References DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="add_ons_rslogix5000">
+<DataTypes Use="Context">
+<DataType Use="Target" Name="Pump" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZPump0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read Only"/>
+<Member Name="START" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZPump0" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="STOP" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZPump0" BitNumber="1" ExternalAccess="Read/Write"/>
+<Member Name="RUNNING" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZPump0" BitNumber="2" ExternalAccess="Read Only"/>
+<Member Name="SET_SPEED" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="GET_SPEED" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read Only"/>
+</Members>
+</DataType>
+</DataTypes>
+</Controller>
+</RSLogix5000Content>
